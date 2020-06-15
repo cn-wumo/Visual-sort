@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>可视化排序</title>
+    <!--导入jQuery库-->
+    <script src="js/jquery.js"></script>
+    <!--导入BootStrap库-->
+    <script src="js/BootStrap.min.js"></script>
+    <!--导入CSS文件bootstrap.min.css-->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!--导入CSS文件sort.css-->
+    <link rel="stylesheet" href="css/sort.css">
+</head>
+
+<style>
+    /*选定所有input类的属性*/
+    .input {
+        width: 500px;
+    }
+
+    /*选定所有const_input类的属性*/
+    .const_input {
+        width: 300px;
+    }
+    /*选定所有input_list类的属性*/
+    .input_list {
+        display: inline-block;
+        width: 160px;
+        margin: 0px,20px;
+    }
+
+    /*选定所有list类的属性*/
+    .list{
+        font-weight: bold;
+        font-size: 16px;
+    }
+
+    /*选定所有Left类的属性*/
+    .Left {
+        float: left;
+        border-right: 2px;
+        margin-left: 80px;
+    }
+
+    /*选定所有Middle类的属性*/
+    .Middle {
+        float: left;
+        margin-left: 80px;
+        margin-top: 20px;
+    }
+
+    /*选定所有Right类的属性*/
+    .Right {
+        float: left;
+        margin-left: 80px;
+        margin-top: 20px;
+        height: 36vh;
+    }
+
+    /*选定所有form-group类的属性*/
+    .form-group {
+        margin-bottom: auto;
+        text-align: left;
+        margin-top: 10px;
+    }
+</style>
+
+<body>
+    <div class="Left">
+        <div class="form-group">
+            <label class="list" style="font-size: 25px;">数据规模：</label>
+            <input id="arrLen" value="100" placeholder="请输入整数" name="arrLen" class="form-control input_list">
+            <button class="btn btn-danger" id="again" type="button">生成并刷新</button>
+        </div>
+        <div class="form-group">
+            <label class="list" style="font-size: 25px;">数据列表：</label>
+            <button class="btn btn-info" id="createNums" type="button" style="margin-bottom: 5px;">随机生成数据</button>
+            <button class="btn btn-warning" id="falsh" type="button" style="margin-bottom: 5px;">刷新</button>
+            <textarea id="arr" name="arr" placeholder="示例：[1,10,100,1000]" class="form-control input" rows="5"></textarea>
+        </div>
+    </div>
+
+    <div class="Middle">
+        <label class="list" style="font-size: 16px;">当前数据：</label>
+        <textarea id="present_arr" name="present_arr" class="form-control const_input" rows="4" disabled></textarea>
+        <div class="form-group">
+            <label style="font-weight: bold;font-size: 16px;">简单排序算法: </label>
+            <div class="btn-group">
+                <button id="bubble" class="btn btn-info" type="button">冒泡</button>
+                <button id="insert" class="btn btn-info" type="button">插入</button>
+                <button id="select" class="btn btn-info" type="button">选择</button>
+            </div>
+        </div>
+        <div class="form-group">
+            <label style="font-weight: bold;font-size: 16px;">高级排序算法: </label>
+            <div class="btn-group">
+                <button id="quick" class="btn btn-success" type="button">快排</button>
+                <button id="merge" class="btn btn-success" type="button">归并</button>
+                <button id="shell" class="btn btn-success" type="button">希尔</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="Right">
+        <div class="form-group">
+            <label class="list">当前排序算法: </label>
+            <input name="type" value="快排" placeholder="排序算法" class="form-control input_list" style="width: 60px;" disabled>
+            <label class="list">所需帧数: </label>
+            <input id="maxNode" name="maxNode" value="0" class="form-control input_list" style="margin-left: 20px;width: 120px;" disabled>
+        </div>
+        <div class="form-group">
+            <label style="font-weight: bold;font-size: 16px;">当前速度: </label>
+            <input id="speedNum" name="speedNum" value="50" placeholder="输入0到500的整数" class="form-control input_list">
+            <div class="btn-group">
+                <button id="speedUp" class="btn btn-warning" type="button">加速</button>
+                <button id="slowDown" class="btn btn-warning" type="button">减速</button>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="list">当前节点: </label>
+            <input id="node" name="node" value="0" placeholder="当前所在的节点" class="form-control input_list" disabled>
+            <button id="pause" name="pause" class="btn btn-danger" type="button" style="margin-left: 20px;" >播放</button>
+        </div>
+        <div class="form-group">
+            <label style="font-weight: bold;font-size: 16px;">演示控制:</label>
+            <div class="btn-group">
+                <button id="prior" naem="prior" class="btn btn-info" type="button">上一步</button>
+                <button id="next" name="next" class="btn btn-info" type="button">下一步</button>
+            </div>
+        </div>
+        <div class="form-group">
+            <label style="font-weight: bold;font-size: 16px;">节点转跳:</label>
+            <input id="destNode" name="destNode" value="0" placeholder="目标节点" class="form-control input_list">
+            <button id="goto" name="goto" class="btn btn-info" type="button">转跳</button>
+        </div>
+    </div>
+
+    <div style="clear: both;"></div>
+    <div class="displayBox"></div>
+    <div class="displayBox"></div>
+    
+    <script src="js/sort.js"></script>
+    <script src="js/animation.js"></script>
+</body>
+
+</html>

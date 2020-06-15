@@ -1,0 +1,40 @@
+input[type=button]{
+    cursor: pointer;
+}
+.displayBox{
+    clear: both;
+    border: 1px solid black;
+    height: 60vh;
+    width: 100%;
+}
+.frame{
+    float: left;
+    width: 12px;
+    height: 100%;
+    margin-right: 3px;
+    position: relative;
+    transform: scaleY(-1)
+}
+.sort_span{
+    width: 100%;
+    display: block;
+    background: #ddd;
+}
+.sort_span_black{
+    background: black;
+}
+.sort_span_none{
+    background: none;
+}
+.sort_span_green{
+    background: green;
+}
+.sort_span_burlywood{
+    background: burlywood;
+}
+.sort_span_teal{
+    background: teal;
+}
+.sort_span_tag{
+    background: red;
+}
