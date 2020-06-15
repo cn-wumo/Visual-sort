@@ -16,4 +16,4 @@
     播放速度的区间是[0,1000]，加减速按钮可加速至5ms延迟，自定义修改可修改至0延迟
 
 ### 项目地址：
-https://github.com/czd15977/Visual-sort
+[点击此](https://github.com/czd15977/Visual-sort)
